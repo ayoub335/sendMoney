@@ -7,10 +7,10 @@ import { Timer } from './entity/timer';
 export class AppService {
   constructor(@InjectRepository(Timer)
   private timerRepository:Repository<Timer>,){}
-  getHello(): string {
-    return 'Hello World!';
+  async findAll() {
+    return await this.timerRepository.find();
   }
   create(period:Timer):Promise<Timer>{
-    return this.timerRepository.save(period)
+    return this.timerRepository.save(period);
   }
 }

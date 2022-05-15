@@ -63,9 +63,8 @@ export default {
         formattedTime: this.formatTime(this.currentTimer)
       });
       this.latestLap = this.formatTime(this.currentTimer);
-      console.log("this.latestLap",this.latestLap)
       const period = { periode: this.latestLap };
-      axios.post("http://localhost:3000/timer/createTimer", period).then(res=>console.log(res))
+      axios.post("http://localhost:3000/timer/createTimer", period)
       this.currentTimer = 0;
       this.stop()
     },
