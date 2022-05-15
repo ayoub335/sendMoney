@@ -6,7 +6,7 @@ import { Timer } from './entity/timer';
 @Controller('timer')
 export class AppController {
   constructor(private readonly appService: AppService) {}
-  @Post('userAnswer')
+  @Post('createTimer')
   async create(@Res() res: Response,@Body() period:Timer ) {
     try{
       const userAnswer=await this.appService.create(period)

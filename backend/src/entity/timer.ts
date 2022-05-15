@@ -9,5 +9,5 @@ export class Timer {
     })
     id: number;
     @Column()
-    periodeName:string
+    periode:string
 }

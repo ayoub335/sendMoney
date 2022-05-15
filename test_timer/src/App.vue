@@ -63,6 +63,9 @@ export default {
         formattedTime: this.formatTime(this.currentTimer)
       });
       this.latestLap = this.formatTime(this.currentTimer);
+      console.log("this.latestLap",this.latestLap)
+      const period = { periode: this.latestLap };
+      axios.post("http://localhost:3000/timer/createTimer", period).then(res=>console.log(res))
       this.currentTimer = 0;
       this.stop()
     },
@@ -71,9 +74,6 @@ export default {
       this.currentTimer = 0;
       this.formattedTime = "00:00:00";
       this.timerState = "stopped";
-      /*const period = { periodeName: this.totalTime };
-      axios.post("https://reqres.in/api/articles", article)
-        .then(response => this.articleId = response.data.id);*/
     },
     tick() {
       this.ticker = setInterval(() => {
