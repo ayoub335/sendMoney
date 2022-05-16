@@ -33,7 +33,6 @@ export default {
       ticker: undefined,
       laps: [],
       latestLap: "",
-      snackbar: false
     }
   },
   methods: {
@@ -57,7 +56,6 @@ export default {
       }
     },
     lap() {
-      this.snackbar = true;
       this.laps.push({
         seconds: this.currentTimer,
         formattedTime: this.formatTime(this.currentTimer)
