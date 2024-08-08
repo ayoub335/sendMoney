@@ -6,10 +6,16 @@ import {FontFamily} from '../Assets/fontFamily';
 import {IInput} from '../Interface';
 import {Text} from '.';
 import {ETextType} from '../Enum/Enum';
+import {transformNumber} from '../Functions/Commons';
 
 function Input(props: Readonly<IInput>) {
   const [isFocused, setIsFocused] = useState(false);
   const {value, placeholder, icon, ...rest} = props;
+  console.log(
+    'transformNumber(value)',
+    value?.toString() === '',
+    transformNumber(value),
+  );
 
   return (
     <View
@@ -55,7 +61,7 @@ function Input(props: Readonly<IInput>) {
         )}
         <TextInput
           {...rest}
-          value={value}
+          value={isFocused ? value : transformNumber(value)}
           placeholder=""
           placeholderTextColor={commonColor.lightGray}
           onFocus={e => {

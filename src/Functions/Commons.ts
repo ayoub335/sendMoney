@@ -18,11 +18,11 @@ const removeLeadingZero = (text: string) => {
   return text;
 };
 
-function transformNumber(input: number | string) {
-  input = typeof input === 'string' ? parseInt(input) : input;
-  if (input === undefined || input === null) {
+function transformNumber(input?: number | string) {
+  if (input === undefined || input === null || input.toString() === '') {
     return '';
   }
+  input = typeof input === 'string' ? parseInt(input) : input;
   const formatter = new Intl.NumberFormat('en', {
     minimumFractionDigits: 3,
     maximumFractionDigits: 3,
