@@ -53,7 +53,7 @@ function SendMoney() {
   const onChangeInput = (amount: string) => {
     let fees = calculateFees(parseInt(amount));
     let total = fees + parseInt(amount);
-    const amountLeadingZero = removeLeadingZero(amount);
+    const amountLeadingZero = removeLeadingZero(amount).replace(/[^0-9]/g, '');
     if (
       amountLeadingZero === '0' ||
       amountLeadingZero === '' ||
