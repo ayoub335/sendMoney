@@ -5,7 +5,11 @@ import {SendMoneyTemplate} from '../Template';
 import {AppNavigationPages} from '../Enum/Enum';
 import {INavigation} from '../Interface';
 import {useState} from 'react';
-import {handleErrorToast, removeLeadingZero} from '../Functions/Commons';
+import {
+  handleErrorToast,
+  removeLeadingZero,
+  transformNumber,
+} from '../Functions/Commons';
 import {balance, feesPercent, maximumCapOfFees} from '../Data/Data';
 
 function SendMoney() {
@@ -25,9 +29,9 @@ function SendMoney() {
   };
   const onSubmit = () => {
     nav.navigate(AppNavigationPages.SuccessPage, {
-      amount: inputValue,
-      total: financialSummary.total,
-      fee: financialSummary.fees,
+      amount: transformNumber(inputValue),
+      total: transformNumber(financialSummary.total),
+      fee: transformNumber(financialSummary.fees),
       transactionId: '841515646856',
     });
   };
@@ -59,7 +63,7 @@ function SendMoney() {
     }
   };
   const onPressBoxAmount = (value: number) => {
-    setInputValue(value.toString());
+    onChangeInput(value.toString());
   };
   const onBlur = () => {
     setIsVisibleBox(true);

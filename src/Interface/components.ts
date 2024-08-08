@@ -62,6 +62,7 @@ interface ITextValue {
   firstText?: string;
   isBoldText?: boolean;
   secondText?: string;
+  secondTextProps?: IText;
 }
 
 interface INavigation {

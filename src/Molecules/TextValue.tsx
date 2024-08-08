@@ -13,7 +13,10 @@ function TextValue(props: Readonly<ITextValue>) {
           <Text type={ETextType.Heading4} color={commonColor.mediumGray}>
             {props.firstText}
           </Text>
-          <Text type={ETextType.Heading2} color={commonColor.darkGray}>
+          <Text
+            {...props?.secondTextProps}
+            type={ETextType.Heading2}
+            color={commonColor.darkGray}>
             {props.boldSecondText}
             <Text type={ETextType.Heading3} color={commonColor.darkGray}>
               {props.secondText}
@@ -28,7 +31,10 @@ function TextValue(props: Readonly<ITextValue>) {
           <Text type={ETextType.Heading4} color={commonColor.charcoalGray}>
             {props.firstText}
           </Text>
-          <Text type={ETextType.TextHeader} color={commonColor.darkGray}>
+          <Text
+            {...props?.secondTextProps}
+            type={ETextType.TextHeader}
+            color={commonColor.darkGray}>
             {props.secondText}
           </Text>
         </>
@@ -37,7 +43,9 @@ function TextValue(props: Readonly<ITextValue>) {
     return (
       <>
         <Text color={commonColor.charcoalGray}>{props.firstText}</Text>
-        <Text color={commonColor.charcoalGray}>{props.secondText}</Text>
+        <Text {...props?.secondTextProps} color={commonColor.charcoalGray}>
+          {props.secondText}
+        </Text>
       </>
     );
   };

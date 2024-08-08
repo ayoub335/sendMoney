@@ -24,7 +24,7 @@ function SuccessPage({route}: any) {
       style={{
         ...Flex.row,
         ...Flex.alignItemsCenter,
-        gap: 10,
+        gap: 5,
       }}>
       <Text type={ETextType.Heading1} color={commonColor.darkGray}>
         -
@@ -36,9 +36,17 @@ function SuccessPage({route}: any) {
       />
     </View>
   );
+  const totalParts = total?.split('.');
+  const amountParts = amount?.split('.');
+  const feesParts = fee?.split('.');
+  const commonSecondTextProps = {
+    isWithLeftIcon: true,
+    icon: renderModifiedCurrencyIcon(10, 10),
+    textStyle: {paddingTop: 3},
+  };
   return (
     <Container isWithHorizontalPadding>
-      <View style={{...Flex.center, paddingTop: 40}}>
+      <View style={{...Flex.center, paddingVertical: 40}}>
         <GreenCheck />
         <Text type={ETextType.Heading1} color={commonColor.darkGray}>
           Transaction completed
@@ -60,9 +68,9 @@ function SuccessPage({route}: any) {
             isWithLeftIcon
             textStyle={{paddingTop: 4}}
             icon={renderModifiedCurrencyIcon(18, 20)}>
-            {total}
+            {totalParts[0]}
             <Text type={ETextType.Heading5} color={commonColor.darkGray}>
-              {'.000'}
+              {`.${totalParts[1]}`}
             </Text>
           </Text>
           <Text color={commonColor.sentMoney}>Money sent</Text>
@@ -70,22 +78,25 @@ function SuccessPage({route}: any) {
         {separator()}
         <View style={{gap: 15}}>
           <TextValue
+            secondTextProps={commonSecondTextProps}
             isMixedText
             firstText={'Amount'}
-            secondText={'.000'}
-            boldSecondText={amount}
+            secondText={`.${amountParts[1]}`}
+            boldSecondText={amountParts[0]}
           />
           <TextValue
+            secondTextProps={commonSecondTextProps}
             isMixedText
             firstText={'Fee'}
-            secondText={'.000'}
-            boldSecondText={fee}
+            secondText={`.${feesParts[1]}`}
+            boldSecondText={feesParts[0]}
           />
           <TextValue
+            secondTextProps={commonSecondTextProps}
             isMixedText
             firstText={'Total'}
-            secondText={'.000'}
-            boldSecondText={total}
+            secondText={`.${totalParts[1]}`}
+            boldSecondText={totalParts[0]}
           />
         </View>
         {separator()}

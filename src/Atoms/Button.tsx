@@ -27,7 +27,6 @@ function Button(props: Readonly<IButton>) {
     };
     textColor = commonColor.white;
   }
-  console.log('containerClassName', containerClassName);
 
   return (
     <TouchableOpacity {...props} disabled={props.disabled}>

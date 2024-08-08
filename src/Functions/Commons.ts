@@ -22,4 +22,16 @@ const removeLeadingZero = (text: string) => {
   return text;
 };
 
-export {getUniqueKey, handleErrorToast, removeLeadingZero};
+function transformNumber(input: number | string) {
+  input = typeof input === 'string' ? parseInt(input) : input;
+  if (input === undefined || input === null) {
+    return '';
+  }
+  const formatter = new Intl.NumberFormat('en', {
+    minimumFractionDigits: 3,
+    maximumFractionDigits: 3,
+  });
+  return formatter.format(input);
+}
+
+export {getUniqueKey, handleErrorToast, removeLeadingZero, transformNumber};

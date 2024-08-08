@@ -8,6 +8,7 @@ import {commonColor} from '../Assets/colors';
 import {ETextType} from '../Enum/Enum';
 import {ISendMoneyTemplate} from '../Interface';
 import {balance} from '../Data/Data';
+import {transformNumber} from '../Functions/Commons';
 
 function SendMoneyTemplate(props: Readonly<ISendMoneyTemplate>) {
   return (
@@ -24,7 +25,7 @@ function SendMoneyTemplate(props: Readonly<ISendMoneyTemplate>) {
         <TextWithBG>
           <Text color={commonColor.charcoalGray}>Balance:</Text>
           <Text type={ETextType.Heading2} color={commonColor.charcoalGray}>
-            {`${props.financialSummary.balance} DT`}
+            {`${transformNumber(props.financialSummary.balance)} DT`}
           </Text>
         </TextWithBG>
       </View>
@@ -52,12 +53,12 @@ function SendMoneyTemplate(props: Readonly<ISendMoneyTemplate>) {
         )}
         <TextValue
           firstText={'Fees:'}
-          secondText={`${props.financialSummary.fees.toString()} DT`}
+          secondText={`${transformNumber(props.financialSummary.fees)} DT`}
         />
         <TextValue
           isBoldText
           firstText={'Total:'}
-          secondText={`${props.financialSummary.total.toString()} DT`}
+          secondText={`${transformNumber(props.financialSummary.total)} DT`}
         />
       </View>
       <Footer

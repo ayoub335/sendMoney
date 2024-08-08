@@ -95,7 +95,7 @@ function Text(props: Readonly<IText>) {
         style={{
           ...Flex.row,
           ...Flex.alignItemsCenter,
-          gap: 10,
+          gap: 5,
         }}>
         {props.icon}
         {renderText()}
