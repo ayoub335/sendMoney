@@ -66,7 +66,7 @@ interface ITextValue {
 }
 
 interface INavigation {
-  navigate: (page?: string, params?: object) => void;
+  dispatch: any;
 }
 
 interface IFooter {

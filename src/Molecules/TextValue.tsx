@@ -1,5 +1,5 @@
 import {View} from 'react-native';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {ITextValue} from '../Interface';
 import {Text} from '../Atoms';
 import {ETextType} from '../Enum/Enum';

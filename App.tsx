@@ -2,7 +2,7 @@ import React from 'react';
 import {KeyboardAvoidingView, Platform, SafeAreaView} from 'react-native';
 import AppNavigation from './src/Navigation/AppNavigation';
 import {NavigationContainer} from '@react-navigation/native';
-import {Flex} from './src/Assets/flex';
+import {Flex} from './src/Assets/Style';
 
 function App(): React.JSX.Element {
   return (

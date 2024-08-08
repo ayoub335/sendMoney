@@ -1,7 +1,7 @@
 import {Pressable, View} from 'react-native';
 import {Text} from '../Atoms';
 import {commonColor} from '../Assets/colors';
-import {Flex} from '../Assets/flex';
+import {Flex, Shadow} from '../Assets/Style';
 import RedX from '../Atoms/SVG/RedX';
 import Close from '../Atoms/SVG/Close';
 import Toast from 'react-native-toast-message';
@@ -16,6 +16,7 @@ export const toastConfig = {
       }}>
       <View
         style={{
+          ...Shadow.primary,
           width: '100%',
           height: 56,
           borderRadius: 8,

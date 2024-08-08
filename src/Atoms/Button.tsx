@@ -1,5 +1,5 @@
 import {TouchableOpacity, View} from 'react-native';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {commonColor} from '../Assets/colors';
 import {Text} from '.';
 import {ETextType} from '../Enum/Enum';

@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import {StackActions, useNavigation} from '@react-navigation/native';
 import {Container} from '../Atoms';
 import {Header} from '../Molecules';
 import {SendMoneyTemplate} from '../Template';
@@ -28,38 +28,55 @@ function SendMoney() {
     return Math.min(feesPercent * amount, maximumCapOfFees);
   };
   const onSubmit = () => {
-    nav.navigate(AppNavigationPages.SuccessPage, {
-      amount: transformNumber(inputValue),
-      total: transformNumber(financialSummary.total),
-      fee: transformNumber(financialSummary.fees),
-      transactionId: '841515646856',
+    nav.dispatch(
+      StackActions.replace(AppNavigationPages.SuccessPage, {
+        amount: transformNumber(inputValue),
+        total: transformNumber(financialSummary.total),
+        fee: transformNumber(financialSummary.fees),
+        transactionId: '841515646856',
+      }),
+    );
+  };
+  const onChangeAmountFinancialSummary = (
+    amount: string,
+    balance: number,
+    fees: number,
+    total: number,
+  ) => {
+    setInputValue(amount);
+    setFinancialSummary({
+      balance: balance,
+      fees: fees,
+      total: total,
     });
   };
   const onChangeInput = (amount: string) => {
-    if (parseInt(amount) === 0) {
-      setInputValue('0');
-      return;
-    }
     let fees = calculateFees(parseInt(amount));
     let total = fees + parseInt(amount);
-    if (total > balance) {
+    const amountLeadingZero = removeLeadingZero(amount);
+    if (
+      amountLeadingZero === '0' ||
+      amountLeadingZero === '' ||
+      amount === ''
+    ) {
+      onChangeAmountFinancialSummary(amountLeadingZero, balance, 0, 0);
+    } else if (total > balance) {
       handleErrorToast();
       const maxAmount = calculateMaxAmount(balance, fees);
       total = maxAmount + fees;
-      setInputValue(maxAmount.toString());
-      setFinancialSummary({
-        balance: balance - total,
-        fees: fees,
-        total: total,
-      });
+      onChangeAmountFinancialSummary(
+        maxAmount.toString(),
+        balance - total,
+        fees,
+        total,
+      );
     } else {
-      const nullCondition = amount === '';
-      setInputValue(removeLeadingZero(amount));
-      setFinancialSummary({
-        balance: nullCondition ? balance : balance - total,
-        fees: nullCondition ? 0 : fees,
-        total: nullCondition ? 0 : total,
-      });
+      onChangeAmountFinancialSummary(
+        amountLeadingZero,
+        balance - total,
+        fees,
+        total,
+      );
     }
   };
   const onPressBoxAmount = (value: number) => {

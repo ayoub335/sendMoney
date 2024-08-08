@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {TextInput, View} from 'react-native';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {commonColor} from '../Assets/colors';
 import {FontFamily} from '../Assets/fontFamily';
 import {IInput} from '../Interface';
@@ -67,11 +67,11 @@ function Input(props: Readonly<IInput>) {
             props?.onBlur?.(e);
           }}
           style={{
-            height: 73,
+            height: 60,
             ...Flex.flexGrow1,
             ...FontFamily.ubuntuMedium,
             fontSize: 40,
-            lineHeight: 30,
+            lineHeight: 40,
             textAlign: 'right',
             color: 'black',
             zIndex: 1,

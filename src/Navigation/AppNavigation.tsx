@@ -1,6 +1,5 @@
 import {AppNavigationPages} from '../Enum/Enum';
 import {SendMoneyRoutes} from '../Data/Data';
-import {getUniqueKey} from '../Functions/Commons';
 import {horizontalAnimation} from './NavigationAnimation';
 import {createStackNavigator} from '@react-navigation/stack';
 import Toast from 'react-native-toast-message';
@@ -11,9 +10,9 @@ function AppNavigation() {
   return (
     <>
       <Stack.Navigator initialRouteName={AppNavigationPages.SendMoney}>
-        {SendMoneyRoutes?.map(item => (
+        {SendMoneyRoutes?.map((item, index) => (
           <Stack.Screen
-            key={getUniqueKey()}
+            key={index}
             name={item?.name}
             component={item?.component}
             options={{

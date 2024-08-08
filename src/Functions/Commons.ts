@@ -1,9 +1,5 @@
 import Toast from 'react-native-toast-message';
 
-const getUniqueKey = () => {
-  return new Date().getTime();
-};
-
 const handleErrorToast = () => {
   Toast.show({
     type: 'errorToast',
@@ -34,4 +30,4 @@ function transformNumber(input: number | string) {
   return formatter.format(input);
 }
 
-export {getUniqueKey, handleErrorToast, removeLeadingZero, transformNumber};
+export {handleErrorToast, removeLeadingZero, transformNumber};

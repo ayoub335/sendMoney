@@ -1,5 +1,5 @@
 import {View} from 'react-native';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {Avatar, Text} from '../Atoms';
 import {ETextType} from '../Enum/Enum';
 import {commonColor} from '../Assets/colors';

@@ -1,5 +1,5 @@
 import {View} from 'react-native';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {AmountBox, Button} from '../Atoms';
 import {IFooter} from '../Interface';
 

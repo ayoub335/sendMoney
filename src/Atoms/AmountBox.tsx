@@ -1,7 +1,7 @@
 import {Pressable, View} from 'react-native';
 import {Text} from '.';
 import {commonColor} from '../Assets/colors';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {IAmountBox} from '../Interface';
 import {useState} from 'react';
 

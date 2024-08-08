@@ -3,7 +3,7 @@ import {IText} from '../Interface';
 import {ETextType} from '../Enum/Enum';
 import {commonColor} from '../Assets/colors';
 import {FontFamily} from '../Assets/fontFamily';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 
 function Text(props: Readonly<IText>) {
   let textStyle = {};

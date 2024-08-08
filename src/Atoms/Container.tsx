@@ -1,6 +1,6 @@
 import {ScrollView, StyleProp, View, ViewStyle} from 'react-native';
 import {useRef} from 'react';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {AppPaddingHorizontal} from '../Config/common';
 import {commonColor} from '../Assets/colors';
 

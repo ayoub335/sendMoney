@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import {AppPaddingHorizontal} from '../Config/common';
 import {AvatarInfo, TextWithBG, TextValue, Footer} from '../Molecules';
-import {Flex} from '../Assets/flex';
+import {Flex} from '../Assets/Style';
 import {Input, Text} from '../Atoms';
 import CurrencyIcon from '../Atoms/SVG/CurrencyIcon';
 import {commonColor} from '../Assets/colors';
@@ -35,6 +35,7 @@ function SendMoneyTemplate(props: Readonly<ISendMoneyTemplate>) {
         onChangeText={props.onChangeInput}
         onBlur={props.onBlur}
         onFocus={props.onFocus}
+        keyboardType="numeric"
       />
       <View style={{gap: 10, paddingTop: 20}}>
         {parseInt(props.inputValue) <= 20 && (
@@ -47,7 +48,7 @@ function SendMoneyTemplate(props: Readonly<ISendMoneyTemplate>) {
               paddingHorizontal: 6,
             }}>
             <Text type={ETextType.Heading3} color={commonColor.green}>
-              dqsdqsd
+              Enjoy your first 20 DT of the day with a fee of 5 millimes.
             </Text>
           </TextWithBG>
         )}
