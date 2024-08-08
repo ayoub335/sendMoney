@@ -3,7 +3,7 @@ import Toast from 'react-native-toast-message';
 const handleErrorToast = () => {
   Toast.show({
     type: 'errorToast',
-    text1: 'dsdsdsd55555',
+    text1: 'insufficient funds',
     position: 'top',
     props: {
       text2NumberOfLines: 2,

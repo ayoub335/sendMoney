@@ -26,8 +26,15 @@ export const toastConfig = {
           ...Flex.alignItemsCenter,
           ...Flex.spaceBetween,
         }}>
-        <RedX />
-        <Text>{props.text1}</Text>
+        <View
+          style={{
+            ...Flex.row,
+            ...Flex.alignItemsCenter,
+            gap: 10,
+          }}>
+          <RedX />
+          <Text>{props.text1}</Text>
+        </View>
         <Pressable
           onPress={() => {
             Toast.hide();
